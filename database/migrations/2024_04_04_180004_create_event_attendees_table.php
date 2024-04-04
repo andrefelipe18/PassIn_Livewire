@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('event_attendees', function (Blueprint $table) {
             $table->id();
-            $table->foreignId(Event::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Event::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
