@@ -15,6 +15,7 @@ class Event extends Model
         'details',
         'slug',
         'maximum_attendees',
+        'date',
         'user_id',
     ];
 

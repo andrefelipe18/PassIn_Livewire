@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->integer('maximum_attendees')->nullable();
             $table->foreignIdFor(User::class)->constrained();
+            $table->date('date');
             $table->timestamps();
         });
     }

@@ -14,9 +14,11 @@
         <!-- Scripts -->
         <tallstackui:script />
         @livewireStyles
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
+        <x-ts-toast /> 
         <div class="min-h-screen bg-gray-100">
             <livewire:layout.navigation />
 
@@ -30,11 +32,13 @@
             @endif
 
             <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+            @if(isset($main))
+                <main>
+                    {{ $main }}
+                </main>
+            @endif
         </div>
 
-        @livewireScripts 
+        @livewireScripts
     </body>
 </html>

@@ -9,7 +9,7 @@ O Sistema fará um scam da credencial do participante para permitir a entrada no
 
 ### Requisitos Funcionais
 
-- [] O organizador deve poder cadastrar um evento;
+- [x] O organizador deve poder cadastrar um evento;
 - [] O organizador deve poder visualizar dados de um evento;
 - [] O organizador deve poder visualizar a lista de participantes de um evento atualizada em tempo real;
 - [] O Participante deve poder se inscrever em um evento;
