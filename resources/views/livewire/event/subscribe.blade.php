@@ -4,6 +4,7 @@ use Livewire\Volt\Component;
 use App\Models\EventAttendees;
 use TallStackUi\Traits\Interactions;
 use Livewire\Attributes\Computed;
+use App\Events\NewAttendeeInEvent;
 
 new class extends Component {
     use Interactions;
@@ -44,6 +45,8 @@ new class extends Component {
             'event_id' => $this->event->id,
             'user_id' => auth()->user()->id
         ]);
+
+        NewAttendeeInEvent::dispatch($this->event, auth()->user()->name);
 
         $this->toast()->success('You have successfully subscribed to the event.')->send();
     }

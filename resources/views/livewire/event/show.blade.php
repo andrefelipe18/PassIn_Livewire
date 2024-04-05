@@ -2,6 +2,7 @@
 
 use Livewire\Volt\Component;
 use App\Models\{EventAttendees, Event};
+use Livewire\Attributes\On;
 
 new class extends Component {
     public $event = null;
@@ -17,6 +18,20 @@ new class extends Component {
     public function mount($event){
         $this->event = $event;
         $this->rows = EventAttendees::where('event_id', $event->id)->get();
+        $this->rows = $this->rows->map(function($row){
+            return [
+                'id' => $row->id,
+                'name' => $row->user->name,
+                'email' => $row->user->email,
+                'subscription_date' => $row->created_at->format('d M Y')
+            ];
+        });
+    }
+
+     #[On('echo-private:new-attendee-in-event.{event.id},NewAttendeeInEvent')]
+    public function newAttendeeInEvent($data){
+        $newEvent = $data['event'];
+        $this->rows = EventAttendees::where('event_id', $newEvent['id'])->get();
         $this->rows = $this->rows->map(function($row){
             return [
                 'id' => $row->id,
@@ -51,5 +66,6 @@ new class extends Component {
     <div class="p-8">
         <h2 class="text-lg font-semibold text-gray-800">Attendees</h2>
     </div>
+
     <x-ts-table :$headers :$rows />
 </div>
