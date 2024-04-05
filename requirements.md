@@ -13,16 +13,12 @@ O Sistema fará um scam da credencial do participante para permitir a entrada no
 - [x] O organizador deve poder visualizar todos eventos cadastrados;
 - [x] O organizador deve poder visualizar detalhes de um evento;
 - [] O organizador deve poder visualizar a lista de participantes de um evento atualizada em tempo real;
-- [] O Participante deve poder se inscrever em um evento;
-- [] O Participante deve poder visualizar seu crachá de inscrição;
-- [] O Participante deve poder fazer check-in no evento;
+- [x] O Participante deve poder se inscrever em um evento;
+- [x] O Participante deve poder visualizar seu crachá de inscrição;
+- [x] O Participante deve poder fazer check-in no evento;
 
 ### Regras de Negócio
 
-- [] O participante só pode se inscrever em um evento uma única vez;
-- [] O participante só pode se inscrever em eventos com vagas disponíveis;
-- [] O participante só pode realizar check-in em um evento uma única vez;
-
-### Requisitos Não Funcionais
-
-- [] O check-in no evento será realizado através de um QRCODE;
+- [x] O participante só pode se inscrever em um evento uma única vez;
+- [x] O participante só pode se inscrever em eventos com vagas disponíveis;
+- [x] O participante só pode realizar check-in em um evento uma única vez;

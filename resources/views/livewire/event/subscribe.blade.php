@@ -77,7 +77,7 @@ new class extends Component {
         )
         <x-ts-button wire:click="subscribe()" icon="arrow-up-right" position="right">Subscribe</x-ts-button>
         @elseif(!$this->notSubscribed())
-        <p>See my credential</p>
+            <p>See my credential</p>
         @endif
 
         @if($this->errorMessage !== '')

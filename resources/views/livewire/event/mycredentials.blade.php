@@ -1,6 +1,7 @@
 <?php
 
 use Livewire\Volt\Component;
+use App\Models\EventAttendees;
 use App\Models\Event;
 use Carbon\Carbon;
 
@@ -8,7 +9,9 @@ new class extends Component {
     public $events = null;
 
     public function mount(){
-        $this->events = Event::where('user_id', auth()->id())->get();
+        $this->events = Event::whereHas('attendees', function($query){
+            $query->where('user_id', auth()->id());
+        })->get();
     }
 };
 ?>

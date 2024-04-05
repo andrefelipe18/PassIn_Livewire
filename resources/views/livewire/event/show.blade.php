@@ -1,12 +1,30 @@
 <?php
 
 use Livewire\Volt\Component;
+use App\Models\{EventAttendees, Event};
 
 new class extends Component {
     public $event = null;
+    public $rows = [];
+
+    public $headers = [
+        ['index' => 'id', 'label' => '#'],
+        ['index' => 'name', 'label' => 'Name'],
+        ['index' => 'email', 'label' => 'Email'],
+        ['index' => 'subscription_date', 'label' => 'Subscription Date']
+    ];
 
     public function mount($event){
         $this->event = $event;
+        $this->rows = EventAttendees::where('event_id', $event->id)->get();
+        $this->rows = $this->rows->map(function($row){
+            return [
+                'id' => $row->id,
+                'name' => $row->user->name,
+                'email' => $row->user->email,
+                'subscription_date' => $row->created_at->format('d M Y')
+            ];
+        });
     }
 };
 ?>
@@ -28,6 +46,10 @@ new class extends Component {
                 <span class="text-gray-900">{{ $event->maximum_attendees ?? 'Not specified' }}</span>
             </div>
         </div>
-
     </div>
+
+    <div class="p-8">
+        <h2 class="text-lg font-semibold text-gray-800">Attendees</h2>
+    </div>
+    <x-ts-table :$headers :$rows />
 </div>

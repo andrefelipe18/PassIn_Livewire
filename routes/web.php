@@ -13,6 +13,10 @@ Route::view('my-events', 'my-events')
     ->middleware(['auth', 'verified'])
     ->name('my-events');
 
+Route::view('my-credentials', 'my-credentials')
+    ->middleware(['auth', 'verified'])
+    ->name('my-credentials');
+
 Route::get('/event/{event}', function (Event $event) {
     if($event->user_id !== auth()->id()) {
         return redirect()->route('dashboard');
