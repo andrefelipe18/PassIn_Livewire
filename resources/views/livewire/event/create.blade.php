@@ -64,8 +64,8 @@ new class extends Component {
         <x-ts-input wire:model='name' label="Event Name *" hint="Insert name for event" />
         <x-ts-textarea wire:model='details' label="Details" hint="Insert the details for event, this is not required" />
         <div class="flex gap-2 w-full justify-between mt-2">
-            <x-ts-number wire:model='attendeeMaxQuantity' chevron centralized label="Attendee max quantity"/>
-            <x-ts-date wire:model='eventDate' label="Event Date *" format="DD [of] MMMM [of] YYYY" />
+            <x-ts-number wire:model='attendeeMaxQuantity' chevron centralized label="Attendee max quantity" />
+            <x-ts-date wire:model='eventDate' :min-date="now()" label="Event Date *" format="DD [of] MMMM [of] YYYY" />
         </div>
         <div class="flex justify-end w-full mt-4">
             <x-ts-button wire:click="saveEvent()">
@@ -73,6 +73,4 @@ new class extends Component {
             </x-ts-button>
         </div>
     </x-ts-modal>
-
-
 </div>

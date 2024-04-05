@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('event_attendees', function (Blueprint $table) {
+        Schema::create('event_attendee', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Event::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
